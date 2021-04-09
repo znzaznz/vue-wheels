@@ -1,25 +1,19 @@
 <template>
   <button class="g-button" :class="{[`icon-${iconPosition}`]:true}">
-    <svg class="icon" v-if="icons">
-      <use :xlink:href="`#i-${icons}`"></use>
-    </svg>
-    <slot></slot>
+    <!--    <svg class="icon" v-if="icons">-->
+    <!--      <use :xlink:href="`#i-${icons}`"></use>-->
+    <!--    </svg>-->
+    <SvgIcon :name="icons"/>
+    你好，这是Vue
+    <!--      <slot></slot>-->
   </button>
 </template>
 <script>
+import SvgIcon from "./SvgIcon";
 export default {
   name: "Button",
-  // props:["icons","iconPosition"],
-  props:{
-    icons: {},
-    iconPosition:{
-      type:String,
-      default:"left",
-      validator(value){
-        return !(value !== "left" && value !== "right")
-      }
-    }
-  }
+  components: {SvgIcon},
+  props:["icons","iconPosition"],
 }
 </script>
 
